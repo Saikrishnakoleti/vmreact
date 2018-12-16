@@ -1,0 +1,22 @@
+jobs:
+- name: anynines_blog_build_job
+  plan:
+  - get: anynines_blog_dockerfile
+    trigger: true
+  - put: anynines_blog_build_image
+    params: {build: anynines_blog_dockerfile}
+resources:
+- name: anynines_blog_dockerfile
+  type: git
+  source:
+   uri: https://nareshyallampally@bitbucket.org/nareshyallampally/webpacktest.git
+   branch: master
+   
+   paths: [Dockerfile]
+- name: anynines_blog_build_image
+  type: docker-image
+  source:
+   repository: ((nareshyallampally/image1:image))
+   email: ((nareshyallampally@gmail.com))
+   username: ((nareshyallampally))
+   password: ((@kamalama9985))

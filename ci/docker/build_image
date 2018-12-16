@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e -u -x
+docker build -t nareshyallampally/image1:image .
+docker run -p 8090:8080 --name dockerimage nareshyallampally/image1:image
+
